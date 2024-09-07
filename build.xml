@@ -15,10 +15,10 @@
     <javac destdir="${classes.dir}" srcdir="src" includeantruntime="false"/>
   </target>
 
-  <target name="compile22">
+  <target name="compile8">
     <mkdir dir="${classes.dir}"/>
     <javac destdir="${classes.dir}" srcdir="src" includeantruntime="false">
-      <compilerarg line="-source 22 -target 22"/>
+      <compilerarg line="-source 8 -target 8"/>
     </javac>
   </target>
 
@@ -31,7 +31,7 @@
     </jar>
   </target>
 
-  <target name="jar22" depends="compile22">
+  <target name="jar8" depends="compile8">
     <mkdir dir="${jar.dir}"/>
     <jar destfile="${jar.final}" basedir="${classes.dir}">
       <manifest>
@@ -45,6 +45,6 @@
   </target>
 
   <target name="clean-build" depends="clean,jar"/>
-  <target name="clean-build22" depends="clean,jar22"/>
+  <target name="clean-build8" depends="clean,jar8"/>
   
 </project>
