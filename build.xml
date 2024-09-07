@@ -15,6 +15,13 @@
     <javac destdir="${classes.dir}" srcdir="src" includeantruntime="false"/>
   </target>
 
+  <target name="compile22">
+    <mkdir dir="${classes.dir}"/>
+    <javac destdir="${classes.dir}" srcdir="src" includeantruntime="false">
+      <compilerarg line="-source 22 -target 22"/>
+    </javac>
+  </target>
+
   <target name="jar" depends="compile">
     <mkdir dir="${jar.dir}"/>
     <jar destfile="${jar.final}" basedir="${classes.dir}">
@@ -22,7 +29,15 @@
         <attribute name="Main-Class" value="${main-class}"/>
       </manifest>
     </jar>
+  </target>
 
+  <target name="jar22" depends="compile22">
+    <mkdir dir="${jar.dir}"/>
+    <jar destfile="${jar.final}" basedir="${classes.dir}">
+      <manifest>
+        <attribute name="Main-Class" value="${main-class}"/>
+      </manifest>
+    </jar>
   </target>
 
   <target name="run" depends="compile,jar">
@@ -30,5 +45,6 @@
   </target>
 
   <target name="clean-build" depends="clean,jar"/>
+  <target name="clean-build22" depends="clean,jar22"/>
   
 </project>
